@@ -1,0 +1,44 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+import sys
+if len(sys.argv)<2:
+	print "+--------------------------+"
+        print "|Usage: KeepAlign <INPUT>|";
+	print "+--------------------------+"
+	print "== Author: Yuki Deng(China)"
+	print "== Time:   2016-9-7"
+	print "== Function: Align the tab-delimited text file and the result is standard output"
+        exit(1)
+IN = open(sys.argv[1])
+lengthrecord={}
+a=IN.readlines()
+Firstline=a[0].strip('\n').split('\t')
+for index,items in enumerate(Firstline):
+	lengthrecord[index]=len(items)
+
+for line in a:
+	line = line.strip('\n')
+	str = line.split('\t')
+	for index,items in enumerate(str):
+		if lengthrecord[index]<len(items):
+			lengthrecord[index]=len(items)
+
+for line2 in a:
+	line2 = line2.strip('\n')
+	str = line2.split('\t')
+	lenghead=0
+	for index,items in enumerate(str):
+		buquanlength = lengthrecord[index]-len(items)
+		for i in range(buquanlength):
+			items+=' '
+		print '|'+items,
+		lenghead+=len(items)+2
+		if index==len(str)-1:
+			print '|' 
+	headstr=''
+	for j in range(lenghead):
+		headstr+='-'
+	print headstr
+
+	
+	
