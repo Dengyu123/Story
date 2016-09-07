@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 import sys
 if len(sys.argv)<2:
-	print "+--------------------------+"
+	print "+------------------------+"
         print "|Usage: KeepAlign <INPUT>|";
-	print "+--------------------------+"
+	print "+------------------------+"
 	print "== Author: Yuki Deng(China)"
 	print "== Time:   2016-9-7"
 	print "== Function: Align the tab-delimited text file and the result is standard output"
